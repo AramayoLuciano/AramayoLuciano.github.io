@@ -1,6 +1,7 @@
 var munieco = document.querySelector(".contenedor-munieco")
 var h1 = document.querySelector(".contenedor-h1")
 var h3 = document.querySelector(".contenedor-h3")
+var mostrarResultadoDerecha = document.querySelector(".resultado-seccion-derecha")
 
 function soloLetras(e) {
     key = e.keyCode || e.which;
@@ -42,6 +43,7 @@ function encriptar() {
     if (textoIngresado.value.length > 0) {
 
     ocultarPanelDerecho();
+    mostrarResultadoDerecha.classList.remove("ocultar")
     
     var textoIngresado = document.getElementById("textoIngresado").value.toLowerCase();
 
@@ -66,6 +68,7 @@ function desencriptar() {
     if (textoIngresado.value.length > 0) {
 
     ocultarPanelDerecho();
+    mostrarResultadoDerecha.classList.remove("ocultar")
     
     var textoIngresado = document.getElementById("textoIngresado").value.toLowerCase();
 
@@ -83,6 +86,9 @@ else {
 }
 
 function copiar() {
+
+    mostrarResultadoDerecha.classList.add("ocultar")
+
     var contenido = document.querySelector("#textoResultado");
     contenido.select();
     document.execCommand("copy");
